@@ -16,7 +16,7 @@ header {
     background: url("/static/images/green.jpg") no-repeat center center;
     background-size: cover;
     color: rgba(255, 255, 255, 0.9);
-    height: 800px;
+    height: 100vh; /* Сделать header полноэкранным */
     width: 100%;
     display: flex;
     align-items: center;
@@ -34,11 +34,11 @@ header h1 {
     text-transform: uppercase;
     position: relative;
     z-index: 1;
-    margin-bottom: 50px;
+    margin-bottom: 20px; /* Уменьшить отступ для лучшего отображения */
 }
 
 header h2 {
-    font-size:calc(24px + 2vw);
+    font-size: calc(12px + 1.5vw);
     margin-top: 10px;
     position: relative;
     z-index: 1;
@@ -47,22 +47,21 @@ header h2 {
 
 .header-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Центрирование навигации */
     align-items: center;
-    padding-top: 20px; /* Добавим немного отступа сверху для выравнивания */
+    width: 100%;
+    padding-top: 20px;
+    position: absolute; /* Размещение сверху */
+    top: 0;
 }
 
 /* Стили для меню */
 nav {
-    position: absolute;
-    top: 20px;
-    left: 0%;
     width: 100%;
     padding: 20px 0;
     z-index: 1000;
-
     display: flex;
-    justify-content: center; /* Выравнивание по левому краю */
+    justify-content: center;
     align-items: center;
     background: rgba(255, 255, 255, 0); /* Прозрачный фон для меню */
 }
@@ -72,15 +71,14 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 30px;
-     /* Сдвиг меню правее */
+    gap: 20px; /* Сдвиг меню правее */
 }
 
 nav ul li a {
     color: rgba(255, 255, 255, 1);
     text-decoration: none;
     font-weight: bold;
-    font-size: 25px;
+    font-size: calc(10px + 1vw); /* Адаптивный размер шрифта */
     transition: color 0.3s ease;
 }
 
@@ -88,6 +86,36 @@ nav ul li a:hover,
 nav ul li a.active {
     color: #ff6347;
 }
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    header {
+        height: auto; /* Позволяет header адаптироваться по высоте содержимого */
+        padding: 20px 0;
+    }
+
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    header h1 {
+        font-size: calc(16px + 4vw); /* Увеличить размер заголовка на маленьких экранах */
+        margin-bottom: 10px;
+    }
+
+    header h2 {
+        font-size: calc(12px + 2.5vw); /* Увеличить размер подзаголовка на маленьких экранах */
+    }
+}
+
 
 /* Общие стили для секций */
 .section {
