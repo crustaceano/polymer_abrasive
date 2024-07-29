@@ -141,10 +141,7 @@ nav ul li a.active {
 
 .card {
     flex: 1 0 calc(30% - 20px);
-    background-color: #f9f9f9;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
