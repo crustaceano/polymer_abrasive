@@ -175,11 +175,11 @@ nav ul li a.active {
 }
 /* Стили для секции "Продукция" */
 .sample-slider{
-        width: 69vw;
+        width: calc(150px + 50vw);
 }
 .sample-slider img{
-        width: 23vw;
-        height: 18vw;
+        width: calc(150px + 10vw);
+        height: calc(120px + 10vw);
     }
 products h1{
     font-size: 64px;
