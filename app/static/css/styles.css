@@ -1,4 +1,3 @@
-/* Общие стили */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -38,7 +37,7 @@ header h1 {
 }
 
 header h2 {
-    font-size:calc(24px + 2vw);
+    font-size: calc(24px + 2vw);
     margin-top: 10px;
     position: relative;
     z-index: 1;
@@ -49,7 +48,7 @@ header h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 20px; /* Добавим немного отступа сверху для выравнивания */
+    padding-top: 20px;
 }
 
 /* Стили для меню */
@@ -60,9 +59,8 @@ nav {
     width: 100%;
     padding: 20px 0;
     z-index: 1000;
-
     display: flex;
-    justify-content: center; /* Выравнивание по левому краю */
+    justify-content: center;
     align-items: center;
     background: rgba(255, 255, 255, 0); /* Прозрачный фон для меню */
 }
@@ -73,7 +71,6 @@ nav ul {
     padding: 0;
     display: flex;
     gap: 20px;
-     /* Сдвиг меню правее */
 }
 
 nav ul li a {
@@ -88,23 +85,49 @@ nav ul li a:hover,
 nav ul li a.active {
     color: #ff6347;
 }
-@media (max-width: 768px) {
-  nav {
-    position: absolute;
-    top: 20px;
-    left: 0%;
-    width: 100%;
-    padding: 20px 0;
-    z-index: 1000;
 
-
-    display: flex;
-    justify-content: center; /* Выравнивание по левому краю */
-    align-items: center;
-    background: rgba(255, 255, 255, 0); /* Прозрачный фон для меню */
-    flex-direction: column;
-  }
+/* Стили для гамбургера */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 1);
 }
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 1); /* Фон для меню */
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        font-size: 20px;
+        color: black; /* Цвет текста меню */
+    }
+
+    .header-content {
+        flex-direction: column;
+    }
+}
+
 /* Общие стили для секций */
 .section {
     padding: 80px 0;

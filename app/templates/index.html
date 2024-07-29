@@ -15,6 +15,12 @@
         document.addEventListener("DOMContentLoaded", function() {
             const sections = document.querySelectorAll(".section");
             const navLinks = document.querySelectorAll("nav ul li a");
+            const hamburger = document.getElementById('hamburger');
+            const navItems = document.getElementById('nav-items');
+
+            hamburger.addEventListener('click', () => {
+                navItems.classList.toggle('active');
+            });
 
             navLinks.forEach(link => {
                 link.addEventListener("click", function(e) {
@@ -68,14 +74,18 @@
 <header>
     <div class="container">
         <div class="header-content">
-<!--            <nav>-->
-<!--                <ul>-->
-<!--                    <li><a href="#about">О нас</a></li>-->
-<!--                    <li><a href="#products">Продукция</a></li>-->
-<!--                    <li><a href="#contact">Контакты</a></li>-->
-<!--                    <li><a href="#order">Заказ</a></li>-->
-<!--                </ul>-->
-<!--            </nav>-->
+            <nav>
+                <button class="hamburger" id="hamburger">
+                    Меню
+                    &#9776;
+                </button>
+                <ul id="nav-items">
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#products">Продукция</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                    <li><a href="#order">Заказ</a></li>
+                </ul>
+            </nav>
         </div>
         <h1>ПОЛИМЕР АБРАЗИВ</h1>
         <h2>Разработка технологии производства полировальных инструментов на органической связке наполненных
