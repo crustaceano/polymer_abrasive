@@ -198,8 +198,8 @@ nav ul li a.active {
         width: calc(150px + 50vw);
 }
 .sample-slider img{
-        width: calc(150px + 10vw);
-        height: calc(120px + 10vw);
+        width: 50vw;
+        height: 40vw;
     }
 products h1{
     font-size: 64px;

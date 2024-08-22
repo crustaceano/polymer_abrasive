@@ -31,7 +31,7 @@ async def submit_order(
 ):
     order = Order(name=name, email=email, phone=phone, details=details)
     await send_email(order)
-    return {"message": "Заказ успешно отправлен"}
+    return "Заказ успешно отправлен"
 
 
 async def send_email(order: Order):

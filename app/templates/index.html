@@ -56,17 +56,41 @@
             });
             const swiper = new Swiper('.sample-slider', {
                 loop: true,
-                slidesPerView: 3,       //add(how many slides to show)
-                centeredSlides: true,   //add(centering the first slide)
-                effect: "coverflow",
-                pagination: {
-                    el: '.swiper-pagination',
-                },
+                autoplay: {         //added
+                    delay: 1000,    //added
+                },                  //added
                 navigation: {
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",
                 },
+                pagination: {
+                    el: '.swiper-pagination',
+                },
             })
+        });
+    </script>
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // предотвращает стандартное поведение формы
+
+            const formData = new FormData(this);
+
+            try {
+                const response = await fetch('/order', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok.');
+                }
+
+                const message = await response.text();
+                alert(message);
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Произошла ошибка при отправке формы.');
+            }
         });
     </script>
 </head>
@@ -135,7 +159,22 @@
 <section id="products" class="section">
     <dic class="container">
         <h2>Продукция</h2>
-        <h3>Предоставление услуг по изготовлению уникальных инструментов</h3>
+        <h3>Разработка технологии для производства полировальных инструментов под ваши требования</h3>
+        <h2>Инструменты на хвостовике</h2>
+        <div class="swiper sample-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="/static/images/products/product_1.jpg"></div>
+                <div class="swiper-slide"><img src="/static/images/products/product_2.jpg"></div>
+                <div class="swiper-slide"><img src="/static/images/products/product_3.jpg"></div>
+                <div class="swiper-slide"><img src="/static/images/products/product_4.jpg"></div>
+                <div class="swiper-slide"><img src="/static/images/products/product_5.jpg"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <h2>Пластины для ультразвуковой полировки</h2>
         <div class="swiper sample-slider">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="/static/images/products/product_1.jpg"></div>
@@ -166,7 +205,7 @@
 <section id="order" class="section">
     <div class="container">
         <h2>Заказ</h2>
-        <form action="/order" method="post">
+        <form action="/order" id="orderForm" method="post">
             <label for="name">Имя:</label>
             <input type="text" id="name" name="name" required>
 
