@@ -22,7 +22,7 @@ class Order(BaseModel):
     details: str
 
 
-@app.post("/order")
+@app.post("/")
 async def submit_order(
         name: str = Form(...),
         email: EmailStr = Form(...),

@@ -68,29 +68,61 @@
             })
         });
     </script>
-    <script>
-        document.getElementById('orderForm').addEventListener('submit', async function(event) {
-            event.preventDefault(); // предотвращает стандартное поведение формы
+<!--    <script>-->
+<!--        document.getElementById('orderForm').addEventListener('submit', async function(event) {-->
+<!--            event.preventDefault(); // предотвращает стандартное поведение формы-->
 
-            const formData = new FormData(this);
+<!--            const formData = new FormData(this);-->
+
+<!--            try {-->
+<!--                const response = await fetch('/order', {-->
+<!--                    method: 'POST',-->
+<!--                    body: formData-->
+<!--                });-->
+
+<!--                if (!response.ok) {-->
+<!--                    throw new Error('Network response was not ok.');-->
+<!--                }-->
+
+<!--                const message = await response.text();-->
+<!--                alert(message);-->
+<!--            } catch (error) {-->
+<!--                console.error('Error:', error);-->
+<!--                alert('Произошла ошибка при отправке формы.');-->
+<!--            }-->
+<!--        });-->
+<!--    </script>-->
+    <script>
+        async function submitOrder(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                details: formData.get('details'),
+            };
 
             try {
-                const response = await fetch('/order', {
+                const response = await fetch('/', {
                     method: 'POST',
-                    body: formData
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams(data),
                 });
 
-                if (!response.ok) {
-                    throw new Error('Network response was not ok.');
+                if (response.ok) {
+                    alert('Заказ успешно отправлен');
+                } else {
+                    alert('Произошла ошибка при отправке заказа');
                 }
-
-                const message = await response.text();
-                alert(message);
             } catch (error) {
-                console.error('Error:', error);
-                alert('Произошла ошибка при отправке формы.');
+                alert('Произошла ошибка: ' + error.message);
             }
-        });
+        }
     </script>
 </head>
 <body>
@@ -204,7 +236,7 @@
 <section id="order" class="section">
     <div class="container">
         <h2>Заказ</h2>
-        <form action="/order" id="orderForm" method="post">
+        <form action="/" id="orderForm" method="post" onsubmit="submitOrder(event)">
             <label for="name">Имя:</label>
             <input type="text" id="name" name="name" required>
 
