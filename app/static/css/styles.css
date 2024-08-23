@@ -139,9 +139,13 @@ nav ul li a.active {
     margin-bottom: 80px;
 }
 .section h3 {
-    font-size: 24px;
+    font-size: 28px;
     margin-bottom: 60px;
     line-height: 0,2;
+}
+.section h4 {
+    font-size: 24px;
+    margin-bottom: 80px;
 }
 .section p {
     font-size: 18px;
@@ -201,8 +205,8 @@ nav ul li a.active {
         width: 50vw;
         height: 40vw;
     }
-products h1{
-    font-size: 64px;
+products h2{
+    font-size: 24px;
 }
 .swiper-container .swiper-pagination{
     bottom: -30px!important;
