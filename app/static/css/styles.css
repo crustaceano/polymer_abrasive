@@ -138,15 +138,18 @@ nav ul li a.active {
     font-size: 36px;
     margin-bottom: 80px;
 }
+
 .section h3 {
     font-size: 28px;
     margin-bottom: 60px;
-    line-height: 0,2;
+    line-height: 0, 2;
 }
+
 .section h4 {
     font-size: 24px;
     margin-bottom: 80px;
 }
+
 .section p {
     font-size: 18px;
     line-height: 1.6;
@@ -197,20 +200,25 @@ nav ul li a.active {
         margin-bottom: 20px;
     }
 }
+
 /* Стили для секции "Продукция" */
-.sample-slider{
-        width: calc(150px + 50vw);
+.sample-slider {
+    width: calc(150px + 50vw);
 }
-.sample-slider img{
-        width: 50vw;
-        height: 40vw;
-    }
-products h2{
+
+.sample-slider img {
+    width: 50vw;
+    height: 40vw;
+}
+
+products h2 {
     font-size: 24px;
 }
-.swiper-container .swiper-pagination{
-    bottom: -30px!important;
+
+.swiper-container .swiper-pagination {
+    bottom: -30px !important;
 }
+
 /* Стили для секции "Контакты" */
 #contact {
     background-color: #f9f9f9;
@@ -232,6 +240,7 @@ products h2{
     font-size: 24px; /* Увеличенный размер шрифта для телефона и почты */
     font-weight: bold; /* Сделаем текст жирным для выделения */
 }
+
 .t195 {
     display: flex;
     justify-content: center;
@@ -276,10 +285,12 @@ products h2{
     .t-container {
         flex-direction: column; /* В колонку на малых экранах */
     }
+
     .t195__text {
         margin-right: 0; /* Убрать отступ на малых экранах */
         margin-bottom: 20px; /* Добавить отступ снизу для пространства между текстом и картинкой */
     }
+
     .t195__img {
         margin-left: 0; /* Убрать отступ на малых экранах */
     }

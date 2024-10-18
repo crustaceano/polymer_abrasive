@@ -11,7 +11,7 @@
         /* Ваши общие стили */
     </style>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const sections = document.querySelectorAll(".section");
             const navLinks = document.querySelectorAll("nav ul li a");
             const hamburger = document.getElementById('hamburger');
@@ -22,7 +22,7 @@
             });
 
             navLinks.forEach(link => {
-                link.addEventListener("click", function(e) {
+                link.addEventListener("click", function (e) {
                     e.preventDefault();
 
                     const targetId = this.getAttribute("href").substring(1);
@@ -68,30 +68,30 @@
             })
         });
     </script>
-<!--    <script>-->
-<!--        document.getElementById('orderForm').addEventListener('submit', async function(event) {-->
-<!--            event.preventDefault(); // предотвращает стандартное поведение формы-->
+    <!--    <script>-->
+    <!--        document.getElementById('orderForm').addEventListener('submit', async function(event) {-->
+    <!--            event.preventDefault(); // предотвращает стандартное поведение формы-->
 
-<!--            const formData = new FormData(this);-->
+    <!--            const formData = new FormData(this);-->
 
-<!--            try {-->
-<!--                const response = await fetch('/order', {-->
-<!--                    method: 'POST',-->
-<!--                    body: formData-->
-<!--                });-->
+    <!--            try {-->
+    <!--                const response = await fetch('/order', {-->
+    <!--                    method: 'POST',-->
+    <!--                    body: formData-->
+    <!--                });-->
 
-<!--                if (!response.ok) {-->
-<!--                    throw new Error('Network response was not ok.');-->
-<!--                }-->
+    <!--                if (!response.ok) {-->
+    <!--                    throw new Error('Network response was not ok.');-->
+    <!--                }-->
 
-<!--                const message = await response.text();-->
-<!--                alert(message);-->
-<!--            } catch (error) {-->
-<!--                console.error('Error:', error);-->
-<!--                alert('Произошла ошибка при отправке формы.');-->
-<!--            }-->
-<!--        });-->
-<!--    </script>-->
+    <!--                const message = await response.text();-->
+    <!--                alert(message);-->
+    <!--            } catch (error) {-->
+    <!--                console.error('Error:', error);-->
+    <!--                alert('Произошла ошибка при отправке формы.');-->
+    <!--            }-->
+    <!--        });-->
+    <!--    </script>-->
     <script>
         async function submitOrder(event) {
             event.preventDefault();
@@ -188,7 +188,7 @@
 </section>
 
 <section id="products" class="section">
-    <dic class="container">
+    <div class="container">
         <h2>Продукция</h2>
         <h4>Разработка технологии для производства полировальных инструментов под ваши требования</h4>
         <h3>Инструменты на хвостовике</h3>
@@ -226,7 +226,7 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
         </div>
-    </dic>
+    </div>
 </section>
 
 

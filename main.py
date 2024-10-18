@@ -7,8 +7,12 @@ import aiosmtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from config import SMTP_SERVER, SMTP_PORT, SMTP_USER, SMTP_PASSWORD
+from fastapi import BackgroundTasks
+print(f'User: {SMTP_USER}, port: {SMTP_PORT}, pwd: {SMTP_PASSWORD}, server: {SMTP_SERVER}')
 
 app = FastAPI()
+
+
 
 templates = Jinja2Templates(directory="app/templates")
 
@@ -24,14 +28,16 @@ class Order(BaseModel):
 
 @app.post("/")
 async def submit_order(
+        background_tasks: BackgroundTasks,
         name: str = Form(...),
         email: EmailStr = Form(...),
         phone: str = Form(...),
         details: str = Form(...),
 ):
     order = Order(name=name, email=email, phone=phone, details=details)
-    await send_email(order)
+    background_tasks.add_task(send_email, order)
     return "Заказ успешно отправлен"
+
 
 
 async def send_email(order: Order):
